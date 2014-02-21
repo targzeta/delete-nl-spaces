@@ -1,5 +1,8 @@
-Delete Needless Spaces: Emacs minor mode for removing unnecessary spaces from a buffer
+Delete Needless Spaces
 ================
+
+Emacs minor mode for removing unnecessary spaces from a buffer
+
 Intro:
 ------
 Delete Needless Spaces is a minor mode that keep clean our buffers from spaces. It’s enabled by default for all new and already cleaned buffers but, if you visit a non-cleaned file, it disables itself.

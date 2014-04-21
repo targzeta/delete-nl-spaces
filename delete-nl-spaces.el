@@ -52,7 +52,8 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
 - change spaces on tabs or vice versa depending on `indent-tabs-mode';
 - delete the trailing whitespaces and empty last lines;
 - delete also latest blank line if `require-final-newline' is nil;"
-  :init-value t)
+  :init-value t
+  :lighter " dns")
 
 (defun delete-nl-spaces ()
   "Execute `delete-nl-spaces-mode'"

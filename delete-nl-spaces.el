@@ -57,7 +57,6 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
 
 (defun delete-nl-spaces ()
   "Execute `delete-nl-spaces-mode'"
-  (interactive)
   (if delete-nl-spaces-mode
       (save-excursion
         ;; Delete initial blank lines

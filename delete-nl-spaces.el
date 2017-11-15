@@ -1,7 +1,7 @@
 ;;; delete-nl-spaces.el --- deleting needless spaces from buffers
-
+;;
 ;; Copyright (C) 2014 Emanuele Tomasi <targzeta@gmail.com>
-
+;;
 ;; This program is free software: you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation, either version 3 of the
@@ -14,31 +14,38 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+;;
 ;; This file is NOT part of GNU Emacs.
-
+;;
 ;; Author: Emanuele Tomasi <targzeta@gmail.com>
-;; Version: 0.1
+;; Version: 1.0
 ;; URL: https://github.com/targzeta/delete-nl-spaces
 ;; Maintainer: Emanuele Tomasi <targzeta@gmail.com>
 ;; Keywords: convenience, whitespace
-
-
+;;
 ;;; Commentary:
+;;
 ;; This minor mode, enabled by default on every new buffers, deletes
 ;; unnecessary spaces from a buffer before that it's saved to its file.
 ;;
 ;; When you visit a file, if its buffer is cleaned then this minor mode will
 ;; be enable, otherwise will be disable.
 ;;
-;; You can clean a buffer also calling `delete-nl-spaces' interactive function.
+;; You can clean a buffer also calling the `delete-nl-spaces' interactive
+;; function.
 ;;
-;; To use this program, copy this file in a directory which is in the Emacs
-;; `load-path'. Then, execute the following code either directly or in your
-;; .emacs file:
-;;     ;; Deleting needless spaces before saving buffers.
-;;     (require 'delete-nl-spaces)
-
+;; The `delete-nl-spaces':
+;; - deletes initial blank lines;
+;; - changes spaces on tabs or vice versa depending on `indent-tabs-mode';
+;; - deletes the trailing whitespaces and empty last lines;
+;; - deletes also latest blank line if `require-final-newline' is nil;"
+;;
+;;; Usage:
+;;
+;; Copy this file in a directory which is in the Emacs `load-path'. Then,
+;; execute the following code either directly or in your .emacs file:
+;; (require 'delete-nl-spaces)
+;;
 ;;; Code:
 
 (define-minor-mode delete-nl-spaces-mode

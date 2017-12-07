@@ -63,7 +63,7 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
   :lighter " dns")
 
 (defun delete-nl-spaces ()
-  "Execute `delete-nl-spaces-mode'"
+  "Execute `delete-nl-spaces'."
   (if delete-nl-spaces-mode
       (save-excursion
         ;; Delete initial blank lines
@@ -90,8 +90,7 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
                 (delete-char (abs trailnewlines))))))))
 
 (defun delete-nl-spaces-find-file-hook ()
-  "Disable `delete-nl-spaces-mode' if `delete-nl-spaces' has effect on
-a buffer."
+  "Check whether to disable `delete-nl-spaces'."
   (when (and (buffer-file-name) (file-exists-p (buffer-file-name)))
     (let ((buffer (current-buffer))
           (final-newline require-final-newline)

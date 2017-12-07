@@ -79,7 +79,8 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
           (untabify (point-min) (point-max)))
 
         ;; Delete the trailing whitespaces and all blank lines
-        (delete-trailing-whitespace)
+        (let ((delete-trailing-lines t))
+          (delete-trailing-whitespace))
 
         ;; Delete the latest newline
         (unless require-final-newline

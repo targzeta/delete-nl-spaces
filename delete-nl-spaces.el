@@ -101,8 +101,7 @@ a buffer."
         (setq indent-tabs-mode tabs-mode)
         (insert-buffer-substring buffer)
         (delete-nl-spaces)
-        (when
-            (not (= (compare-buffer-substrings buffer nil nil nil nil nil) 0))
+        (unless (= (compare-buffer-substrings buffer nil nil nil nil nil) 0)
           (set-buffer buffer)
           (delete-nl-spaces-mode -1)
           (message "delete-nl-spaces-mode disabed for %s"

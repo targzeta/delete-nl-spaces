@@ -81,19 +81,23 @@ If Delete Needless Spaces mode is enable, before a buffer is saved to its file:
         ;; Delete the trailing whitespaces and all blank lines
         (delete-trailing-whitespace)
 
-        ;; Delete the last blank line
-        (if (not require-final-newline)
-            (goto-char (point-max))
+        ;; Delete the latest newline
+        (unless require-final-newline
+          (goto-char (point-max))
           (let ((trailnewlines (skip-chars-backward "\n\t")))
             (if (< trailnewlines 0)
-                (delete-char trailnewlines)))))))
+                (delete-char (abs trailnewlines))))))))
 
 (defun delete-nl-spaces-find-file-hook ()
   "Disable `delete-nl-spaces-mode' if `delete-nl-spaces' has effect on
 a buffer."
   (when (and (buffer-file-name) (file-exists-p (buffer-file-name)))
-    (let ((buffer (current-buffer)))
+    (let ((buffer (current-buffer))
+          (final-newline require-final-newline)
+          (tabs-mode indent-tabs-mode))
       (with-temp-buffer
+        (setq-local require-final-newline final-newline)
+        (setq indent-tabs-mode tabs-mode)
         (insert-buffer-substring buffer)
         (delete-nl-spaces)
         (when

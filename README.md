@@ -3,6 +3,8 @@ Delete Needless Spaces
 
 Emacs: removing the unnecessary spaces from your buffers.
 
+![Demonstration](delete-nl-spaces.gif)
+
 Intro
 -----
 Delete Needless Spaces is a smart minor mode that keep clean our buffers from silly spaces. It's enabled by default for all new and already clean buffers but, if you visit a dirty file, it disables itself.
